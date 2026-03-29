@@ -83,6 +83,7 @@ enum ScreenID {
   SCREEN_PIN,
   SCREEN_MENU_INST,
   SCREEN_SENSORE,
+  SCREEN_POMPA_ADV,
   SCREEN_COUNT
 };
 void setScreen(ScreenID id);
@@ -150,6 +151,18 @@ void setup() {
       config["display_rotation"] = 1;
       Serial.println("  + Aggiunto display_rotation = 1");
     }
+    if (config["pump_check_delay"].isNull()) {
+      config["pump_check_delay"] = 120;
+      Serial.println("  + Aggiunto pump_check_delay = 120s");
+    }
+    if (config["pump_flow_threshold"].isNull()) {
+      config["pump_flow_threshold"] = 5.0f;
+      Serial.println("  + Aggiunto pump_flow_threshold = 5.0 mm/min");
+    }
+    if (config["pump_retry_wait"].isNull()) {
+      config["pump_retry_wait"] = 1800;
+      Serial.println("  + Aggiunto pump_retry_wait = 1800s");
+    }
   } else {
     Serial.println("Config non trovato, creo default...");
     config["ap_subnet_third"] = 42;
@@ -162,7 +175,10 @@ void setup() {
     config["dist_max"] = 4000.0;
     config["calib_min_level"] = nullptr;
     config["calib_max_level"] = nullptr;
-    config["display_rotation"] = 1;
+    config["display_rotation"]    = 1;
+    config["pump_check_delay"]    = 120;
+    config["pump_flow_threshold"] = 5.0f;
+    config["pump_retry_wait"]     = 1800;
   }
 
   async_portal_setup();

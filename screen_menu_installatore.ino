@@ -13,14 +13,14 @@ const int minst_title_y = 8;
 // Menu buttons — centrati, verticali
 const int minst_btn_x = 30;
 const int minst_btn_w = 260;
-const int minst_btn_h = 40;
-const int minst_btn_gap = 12;
-const int minst_btn_y0 = 45;
+const int minst_btn_h = 36;
+const int minst_btn_gap = 8;
+const int minst_btn_y0 = 38;
 
 #ifdef TANKA_SENSOR_REMOTE
-const int minst_num_btns = 3;
+const int minst_num_btns = 4;
 #else
-const int minst_num_btns = 2;
+const int minst_num_btns = 3;
 #endif
 
 const int minst_bottom_y = 208;
@@ -52,21 +52,25 @@ bool minst_home_pressed = false;
 const char* minst_labels[] = {
   "CALIBRAZIONE",
   "LOGICA POMPA",
+  "LOGICA POMPA AVANZATA",
   "SENSORE REMOTO"
 };
 const ScreenID minst_targets[] = {
   SCREEN_CALIBRAZIONE,
   SCREEN_POMPA,
+  SCREEN_POMPA_ADV,
   SCREEN_SENSORE
 };
 #else
 const char* minst_labels[] = {
   "CALIBRAZIONE",
-  "LOGICA POMPA"
+  "LOGICA POMPA",
+  "LOGICA POMPA AVANZATA"
 };
 const ScreenID minst_targets[] = {
   SCREEN_CALIBRAZIONE,
-  SCREEN_POMPA
+  SCREEN_POMPA,
+  SCREEN_POMPA_ADV
 };
 #endif
 

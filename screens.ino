@@ -44,6 +44,7 @@ void setupScreens() {
   screens[SCREEN_PIN]          = {pin_Draw, pin_Update, pin_Touch, pin_Release};
   screens[SCREEN_MENU_INST]    = {minst_Draw, minst_Update, minst_Touch, minst_Release};
   screens[SCREEN_SENSORE]      = {rsens_Draw, rsens_Update, rsens_Touch, rsens_Release};
+  screens[SCREEN_POMPA_ADV]    = {pompa_adv_Draw, pompa_adv_Update, pompa_adv_Touch, pompa_adv_Release};
 }
 
 // Loop schermate (chiamare in loop())
